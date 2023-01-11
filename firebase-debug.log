@@ -1,0 +1,45 @@
+[debug] [2022-02-09T16:28:45.417Z] ----------------------------------------------------------------------
+[debug] [2022-02-09T16:28:45.419Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\Fatou\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-02-09T16:28:45.419Z] CLI Version:   10.1.5
+[debug] [2022-02-09T16:28:45.419Z] Platform:      win32
+[debug] [2022-02-09T16:28:45.419Z] Node Version:  v14.15.4
+[debug] [2022-02-09T16:28:45.421Z] Time:          Wed Feb 09 2022 11:28:45 GMT-0500 (heure normale de l’Est)
+[debug] [2022-02-09T16:28:45.421Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-02-09T16:28:45.433Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-02-09T16:28:45.433Z] > authorizing via signed-in user (famareme@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Fatou\OneDrive\Documents\FM-Tech-website\mon-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-02-09T16:28:56.789Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-02-09T16:28:57.158Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2022-02-09T16:28:57.158Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project fm-tech-website (FM-Tech Website) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2022-02-09T18:22:42.336Z] Error: kill ENOSYS
+    at process.kill (internal/process/per_thread.js:200:13)
+    at process.listener (C:\Users\Fatou\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\signal-exit\index.js:95:15)
+    at process.emit (events.js:315:20)
+[error] 
+[error] Error: An unexpected error has occurred.

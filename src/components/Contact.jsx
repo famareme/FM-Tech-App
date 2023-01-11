@@ -1,23 +1,38 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { Linkedin, Telephone } from 'react-bootstrap-icons';
+import { InfoCircleFill, Linkedin, Telephone } from 'react-bootstrap-icons';
+import ModalSuccess from './Modal-success'
 
 
 const Contact = () => {
   const form = useRef();
+  const [modalShow, setModalShow] = useState(false);
+  const [inputs, setInputs] = useState({})
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
 
   const sendEmail = (e) => {
+    alert('Le nom a été soumis : ' + inputs);
     e.preventDefault();
 
     emailjs.sendForm('service_1epvhju', 'template_9qfoysv', form.current, 'user_KRpeoognFgW3WRNMeWQPs')
       .then((result) => {
           console.log(result.text);
-          alert('Merci de nous avoir contactez.<br> Nous vous répondrons sous peu')
+         console.log(e)
+         if(form.target.value === '') {
+           alert('vous devez remplir le formulaire')
+         }
+         else
+          setModalShow(true)
           form.current.reset()
       }, (error) => {
           console.log(error.text);
@@ -42,19 +57,19 @@ const Contact = () => {
             <Form ref={form}  onSubmit={sendEmail}>
               <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Nom</Form.Label>
-                <Form.Control type="text" name="user_name" />
+                <Form.Control type="text" name="user_name"   value={inputs.user_name || ""}  onChange={handleChange}/>
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPhone">
                 <Form.Label>Téléphone</Form.Label>
-                <Form.Control type="phone" name="user_phone" />
+                <Form.Control type="phone" name="user_phone"   value={inputs.user_phone || ""}  onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Adresse Email</Form.Label>
-                <Form.Control type="email" name="user_email" />
+                <Form.Control type="email" name="user_email"   value={inputs.user_email || ""}  onChange={handleChange} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlMessage">
                 <Form.Label>Votre Message</Form.Label>
-                <Form.Control type="text" name="user_message" />
+                <Form.Control type="text" name="user_message"   value={inputs.user_message || ""}  onChange={handleChange}/>
               </Form.Group>
                 <Form.Control type="submit" className="btn btn-secondary" value="Send" />
             </Form>
@@ -73,6 +88,10 @@ const Contact = () => {
       <input type="submit" value="Send" />
     </form>
       <Button variant="primary">Click Me!</Button> */}
+      <ModalSuccess 
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
       </Container>
     </section>
   );
